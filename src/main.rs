@@ -95,3 +95,14 @@ fn it_replaces_string_contents() {
 
     assert_eq!(String::from("helloworldfoobar"), sub(&string, "\n", ""));
 }
+
+#[test]
+fn it_can_create_a_duplicate_entry_if_id_not_found_and_find_duplicates() {
+    let mut duplicates = create_duplicate_map();
+
+    // not duplicate
+    assert!(!is_duplicate(&mut duplicates, "90"));
+
+    // duplicate
+    assert!(is_duplicate(&mut duplicates, "90"))
+}
